@@ -15,11 +15,4 @@ public class CarcontrollerApplication {
     public static void main(String[] args) {
         SpringApplication.run(CarcontrollerApplication.class, args);
     }
-
-
-
-
-
 }
-
-
