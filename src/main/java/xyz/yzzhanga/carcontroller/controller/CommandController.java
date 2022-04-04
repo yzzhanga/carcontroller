@@ -4,6 +4,7 @@ package xyz.yzzhanga.carcontroller.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import xyz.yzzhanga.carcontroller.CommandEnum;
 import xyz.yzzhanga.carcontroller.RedisQueUtils;
@@ -24,8 +25,8 @@ public class CommandController {
     }
 
 
-    @RequestMapping(path = "/send",method = RequestMethod.GET,params = "command")
-    public String sendCommand( String command) {
+    @RequestMapping(path = "/send",method = RequestMethod.GET)
+    public String sendCommand( @RequestParam String command) {
         CommandEnum commandOrder = CommandEnum.valOf(command);
         if (Optional.ofNullable(commandOrder).isPresent()) {
             queue.pushQ(commandOrder.returnCommand());
