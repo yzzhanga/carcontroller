@@ -1,4 +1,4 @@
-FROM java:8
+FROM openjdk:8u322-jdk
 VOLUME /tmp
 COPY target/carcontroller-0.0.1-SNAPSHOT.jar carcontroller.jar
 RUN bash -c "touch /carcontroller.jar"
